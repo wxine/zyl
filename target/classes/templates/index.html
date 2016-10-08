@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:each="contact,contactStat:${list}">
+		<p>
+		<div th:text="${contact?.name}"></div>
+		<div th:text="${contact?.phone}"></div>
+		<div th:text="${contact?.address}"></div>
+		<a href="#" th:href="@{/delete(id=${contact.id})}">删除</a> <a href="#"
+			th:href="@{/update(id=${contact.id})}">修改</a>
+		</p>
+	</div>
+	<form id="form1" action=save method="post" th:object="${contact}"  >
+		<label>Name：</label> 
+        <input name="name" type="text"><br /> 
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Phone Error</div>
+        <label>Phone：</label>
+		<input name="phone" type="text"><br />
+		<div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</div>
+		<label>Address：</label> <input name="address" type="text"><br />
+		<input id="submit" type="submit" value="提交">
+	</form>
+
+</body>
+</html>

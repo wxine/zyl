@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form action="updates" method="post">
+<label>Name：</label>
+<input name="name" type="text" th:value="${update?.name}"><br/>
+<label>Phone：</label>
+<input name="phone" type="text" th:value="${update?.phone}"><br/>
+<label>Address：</label>
+<input name="address" type="text" th:value="${update?.address}"><br/>
+<input name="id" type="hidden" th:value="${update?.id}">
+<input name="submit" type="submit" value="修改">
+</form>
+</body>
+</html>
